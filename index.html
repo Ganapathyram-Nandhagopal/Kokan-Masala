@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshBite - Premium Food Company</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">FreshBite</div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-cta">Order Now</button>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="badge">Premium Quality Since 1995</div>
+                    <h1 class="hero-title">
+                        Fresh Food,
+                        <span class="text-accent">Exceptional</span><br>
+                        Taste
+                    </h1>
+                    <p class="hero-description">
+                        Experience culinary excellence with our farm-to-table approach. We source the finest ingredients to
+                        create memorable dining experiences for our customers.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">Explore Menu</button>
+                        <button class="btn btn-outline">Learn More</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>4.9/5 Rating</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>10K+ Happy Customers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=500&h=600&fit=crop" alt="Delicious food presentation">
+                    <div class="hero-badge">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <div class="badge-title">Award Winning</div>
+                            <div class="badge-subtitle">Best Food Quality 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">Our Story</div>
+                <h2 class="section-title">Crafting Culinary Excellence Since 1995</h2>
+                <p class="section-description">
+                    From humble beginnings to becoming a trusted name in the food industry, we've maintained our commitment to
+                    quality, freshness, and exceptional taste.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-leaf feature-icon green"></i>
+                    <h3>Farm Fresh Ingredients</h3>
+                    <p>We partner with local farms to source the freshest, highest quality ingredients for all our dishes.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users feature-icon blue"></i>
+                    <h3>Expert Chefs</h3>
+                    <p>Our team of experienced chefs brings creativity and passion to every dish we prepare.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-award feature-icon orange"></i>
+                    <h3>Quality Assurance</h3>
+                    <p>Every product goes through rigorous quality checks to ensure it meets our high standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">Our Menu</div>
+                <h2 class="section-title">Signature Dishes & Specialties</h2>
+                <p class="section-description">
+                    Discover our carefully curated menu featuring both classic favorites and innovative creations.
+                </p>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop" alt="Grilled Salmon">
+                        <div class="menu-price">$28</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Grilled Salmon</h3>
+                        <p>Fresh Atlantic salmon with herbs and lemon</p>
+                        <button class="btn btn-primary btn-small">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop" alt="Truffle Pasta">
+                        <div class="menu-price">$24</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Truffle Pasta</h3>
+                        <p>Handmade pasta with truffle oil and parmesan</p>
+                        <button class="btn btn-primary btn-small">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop" alt="Wagyu Steak">
+                        <div class="menu-price">$45</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Wagyu Steak</h3>
+                        <p>Premium wagyu beef cooked to perfection</p>
+                        <button class="btn btn-primary btn-small">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop" alt="Lobster Bisque">
+                        <div class="menu-price">$18</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Lobster Bisque</h3>
+                        <p>Rich and creamy lobster soup with cognac</p>
+                        <button class="btn btn-primary btn-small">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop" alt="Duck Confit">
+                        <div class="menu-price">$32</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Duck Confit</h3>
+                        <p>Slow-cooked duck leg with cherry sauce</p>
+                        <button class="btn btn-primary btn-small">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop" alt="Chocolate Soufflé">
+                        <div class="menu-price">$14</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Chocolate Soufflé</h3>
+                        <p>Decadent chocolate dessert with vanilla ice cream</p>
+                        <button class="btn btn-primary btn-small">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">Our Services</div>
+                <h2 class="section-title">Complete Food Solutions</h2>
+            </div>
+
+            <div class="services-content">
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="service-text">
+                            <h3>Fast Delivery</h3>
+                            <p>Quick and reliable delivery service to your doorstep within 30 minutes.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="service-text">
+                            <h3>Catering Services</h3>
+                            <p>Professional catering for events, parties, and corporate functions.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="service-text">
+                            <h3>Custom Menu</h3>
+                            <p>Personalized menu planning for special dietary requirements and preferences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=500&fit=crop" alt="Food service">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">Testimonials</div>
+                <h2 class="section-title">What Our Customers Say</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Absolutely incredible! The quality and taste exceeded all my expectations. FreshBite has become my go-to for special occasions."</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Food Blogger</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Their catering service for our grand opening was flawless. Professional, delicious, and beautifully presented."</p>
+                    <div class="testimonial-author">
+                        <strong>Michael Chen</strong>
+                        <span>Restaurant Owner</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"I've worked with many food companies, but FreshBite stands out for their attention to detail and exceptional service."</p>
+                    <div class="testimonial-author">
+                        <strong>Emily Davis</strong>
+                        <span>Event Planner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="badge">Contact Us</div>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-description">
+                    Ready to experience exceptional food? Contact us today to place an order or discuss your catering needs.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <h3>Visit Us</h3>
+                    <p>123 Culinary Street<br>Food District, NY 10001</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <h3>Call Us</h3>
+                    <p>+1 (555) 123-4567<br>Mon-Sun: 9AM-10PM</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3>Email Us</h3>
+                    <p>hello@freshbite.com<br>catering@freshbite.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">FreshBite</div>
+                    <p>Crafting exceptional culinary experiences with fresh ingredients and passionate expertise.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#services">Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Dine-in</li>
+                        <li>Takeaway</li>
+                        <li>Delivery</li>
+                        <li>Catering</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>123 Culinary Street</li>
+                        <li>Food District, NY 10001</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>hello@freshbite.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 FreshBite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
