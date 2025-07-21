@@ -1,100 +1,109 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <base target="_top">
-    <style>
-      body {
-        font-family: Arial;
-        background: #f2f9ff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      .container {
-        background: white;
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        width: 350px;
-      }
-      h2 {
-        text-align: center;
-        color: #2196f3;
-      }
-      input {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-      }
-      button {
-        width: 100%;
-        padding: 10px;
-        background: #2196f3;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      .switch {
-        margin-top: 10px;
-        text-align: center;
-        color: #2196f3;
-        cursor: pointer;
-      }
-      #message {
-        text-align: center;
-        margin-top: 10px;
-        color: #d32f2f;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h2 id="form-title">Login</h2>
-      <input type="text" id="username" placeholder="Username" style="display:none;">
-      <input type="email" id="email" placeholder="Email">
-      <input type="password" id="password" placeholder="Password">
-      <button onclick="handleAction()">Login</button>
-      <div class="switch" onclick="toggleForm()">Don't have an account? Sign Up</div>
-      <div id="message"></div>
-    </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Sign Up</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f9ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      color: #2196f3;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .switch {
+      margin-top: 10px;
+      text-align: center;
+      color: #2196f3;
+      cursor: pointer;
+    }
+    #message {
+      text-align: center;
+      margin-top: 10px;
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="form-title">Login</h2>
+    <input type="text" id="username" placeholder="Username" style="display:none;">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="handleAction()">Login</button>
+    <div class="switch" onclick="toggleForm()">Don't have an account? Sign Up</div>
+    <div id="message"></div>
+  </div>
 
-    <script>
-      let isLogin = true;
+  <script>
+    let isLogin = true;
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx6Hhc-SoTikMhsEHETunh0-ls5-eaguBxvoZ_-juDhqGwyk77zPdf9vWzMIsLKLYYd/exec";
 
-      function toggleForm() {
-        isLogin = !isLogin;
-        document.getElementById("form-title").innerText = isLogin ? "Login" : "Sign Up";
-        document.querySelector("button").innerText = isLogin ? "Login" : "Sign Up";
-        document.getElementById("username").style.display = isLogin ? "none" : "block";
-        document.querySelector(".switch").innerText = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login";
-      }
+    function toggleForm() {
+      isLogin = !isLogin;
+      document.getElementById("form-title").innerText = isLogin ? "Login" : "Sign Up";
+      document.querySelector("button").innerText = isLogin ? "Login" : "Sign Up";
+      document.getElementById("username").style.display = isLogin ? "none" : "block";
+      document.querySelector(".switch").innerText = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login";
+    }
 
-      function handleAction() {
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const msg = document.getElementById("message");
+    function handleAction() {
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const msg = document.getElementById("message");
 
-        msg.innerText = "Loading...";
+      msg.innerText = "Submitting...";
 
-        if (isLogin) {
-          google.script.run.withSuccessHandler(function(response) {
-            msg.innerText = response;
-          }).loginUser(email, password);
-        } else {
-          if (!username) {
-            msg.innerText = "Please enter a username.";
-            return;
-          }
-          google.script.run.withSuccessHandler(function(response) {
-            msg.innerText = response;
-          }).registerUser(username, email, password);
-        }
-      }
-    </script>
-  </body>
+      const formData = new FormData();
+      formData.append("action", isLogin ? "login" : "signup");
+      formData.append("username", username);
+      formData.append("email", email);
+      formData.append("password", password);
+
+      fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors", // Fire-and-forget to bypass CORS
+        body: formData
+      })
+      .then(() => {
+        msg.style.color = "green";
+        msg.innerText = isLogin ? "Login request sent!" : "Signup request sent!";
+      })
+      .catch((error) => {
+        msg.style.color = "red";
+        msg.innerText = "Something went wrong!";
+        console.error("Error!", error.message);
+      });
+    }
+  </script>
+</body>
 </html>
