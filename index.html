@@ -64,45 +64,43 @@
   </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbx6Hhc-SoTikMhsEHETunh0-ls5-eaguBxvoZ_-juDhqGwyk77zPdf9vWzMIsLKLYYd/exec";
-    let isLogin = true;
+  let isLogin = true;
+  const scriptURL = "https://script.google.com/macros/s/AKfycbx6Hhc-SoTikMhsEHETunh0-ls5-eaguBxvoZ_-juDhqGwyk77zPdf9vWzMIsLKLYYd/exec";
 
-    function toggleForm() {
-      isLogin = !isLogin;
-      document.getElementById("form-title").innerText = isLogin ? "Login" : "Sign Up";
-      document.querySelector("button").innerText = isLogin ? "Login" : "Sign Up";
-      document.getElementById("username").style.display = isLogin ? "none" : "block";
-      document.querySelector(".switch").innerText = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login";
-    }
+  function toggleForm() {
+    isLogin = !isLogin;
+    document.getElementById("form-title").innerText = isLogin ? "Login" : "Sign Up";
+    document.querySelector("button").innerText = isLogin ? "Login" : "Sign Up";
+    document.getElementById("username").style.display = isLogin ? "none" : "block";
+    document.querySelector(".switch").innerText = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login";
+  }
 
-    function handleAction() {
-      const username = document.getElementById("username").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const msg = document.getElementById("message");
+  function handleAction() {
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const msg = document.getElementById("message");
+    msg.innerText = "Loading...";
 
-      msg.innerText = "Loading...";
+    const formData = new FormData();
+    formData.append("action", isLogin ? "login" : "register");
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
 
-      const payload = isLogin
-        ? { action: "login", email, password }
-        : { action: "signup", username, email, password };
-
-      fetch(scriptURL, {
-        method: "POST",
-        mode: "no-cors", // Use "cors" if your script is set to allow cross-origin
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        msg.innerText = isLogin ? "Login request sent!" : "Signup request sent!";
-      })
-      .catch(err => {
-        console.error(err);
-        msg.innerText = "Something went wrong!";
-      });
-    }
-  </script>
+    fetch(scriptURL, {
+      method: "POST",
+      body: formData,
+    })
+    .then(response => response.text())
+    .then(data => {
+      msg.innerText = data;
+    })
+    .catch(error => {
+      console.error("Error!", error.message);
+      msg.innerText = "Something went wrong!";
+    });
+  }
+</script>
 </body>
 </html>
