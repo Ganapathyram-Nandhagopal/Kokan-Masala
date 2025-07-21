@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Login / Sign Up</title>
+  <title>Login / Signup</title>
   <style>
     body {
       font-family: Arial;
@@ -64,8 +64,8 @@
   </div>
 
   <script>
-    let isLogin = true;
     const scriptURL = "https://script.google.com/macros/s/AKfycbx6Hhc-SoTikMhsEHETunh0-ls5-eaguBxvoZ_-juDhqGwyk77zPdf9vWzMIsLKLYYd/exec";
+    let isLogin = true;
 
     function toggleForm() {
       isLogin = !isLogin;
@@ -81,27 +81,26 @@
       const password = document.getElementById("password").value;
       const msg = document.getElementById("message");
 
-      msg.innerText = "Submitting...";
+      msg.innerText = "Loading...";
 
-      const formData = new FormData();
-      formData.append("action", isLogin ? "login" : "signup");
-      formData.append("username", username);
-      formData.append("email", email);
-      formData.append("password", password);
+      const payload = isLogin
+        ? { action: "login", email, password }
+        : { action: "signup", username, email, password };
 
       fetch(scriptURL, {
         method: "POST",
-        mode: "no-cors", // Fire-and-forget to bypass CORS
-        body: formData
+        mode: "no-cors", // Use "cors" if your script is set to allow cross-origin
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       })
       .then(() => {
-        msg.style.color = "green";
         msg.innerText = isLogin ? "Login request sent!" : "Signup request sent!";
       })
-      .catch((error) => {
-        msg.style.color = "red";
+      .catch(err => {
+        console.error(err);
         msg.innerText = "Something went wrong!";
-        console.error("Error!", error.message);
       });
     }
   </script>
